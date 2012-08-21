@@ -21,8 +21,9 @@
   </div>
   
   hola1
-  <% f.fields_for :addresses do |ingredient_form| %>
-      hola
+  <%= @cinema.address %>
+  <% f.fields_for(@cinema.address) do |ingredient_form| %>
+      holacc
       <p>  
       <%= ingredient_form.label :city %>  
       </p>  

@@ -1,0 +1,11 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<h1>Lista de cines  </h1>
+<% @results.each do |cinema| %>
+<div class="entry">
+
+<h3><%= cinema.name %></h3>
+<%= sanitize(cinema.description) %>
+
+<% end %>

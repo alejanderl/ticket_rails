@@ -8,8 +8,8 @@ class User < ActiveRecord::Base
   #attrs modifiable by the outside world
   attr_accessible :name, :email, :password, :password_confirmation , :nickname , :image
   
-  has_one:address
-  accepts_nested_attributes_for :addresses
+  has_one:address , dependent: :destroy
+  accepts_nested_attributes_for :address
 
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

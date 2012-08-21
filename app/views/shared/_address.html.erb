@@ -1,4 +1,5 @@
 partial _address.erb.html
+
 <p>
 
   <%= f.label :line1, 'Address 1' %><br />
@@ -24,6 +25,7 @@ partial _address.erb.html
   <%= f.label :city %><br />
 
   <%= f.text_field :city %>
+  <%= puts "hola caracola"%>
 
 </p>
 
@@ -31,9 +33,9 @@ partial _address.erb.html
 
 <p>
 
-  <%= f.label :state %><br />
+ 
 
-  <%= f.text_field :state, :size => 2 %>
+ 
 
 </p>
 
@@ -41,8 +43,6 @@ partial _address.erb.html
 
 <p>
 
-  <%= f.label :zip, 'Zip Code' %><br />
-
-  <%= f.text_field :zip %>
+  
 
 </p>
