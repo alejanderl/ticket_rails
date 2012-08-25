@@ -27,6 +27,7 @@ class CinemasController < ApplicationController
     @cinema = Cinema.new
     
     @cinema.build_address
+    #@cinema.addresses.build
     
     respond_to do |format|
       format.html # new.html.erb

@@ -1,4 +1,4 @@
-<%= form_for(@cinema) do |f| %>
+<%= form_for @cinema , :html => { :multipart => true } do |f| %>
   <% if @cinema.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@cinema.errors.count, "error") %> prohibited this cinema from being saved:</h2>
@@ -19,18 +19,23 @@
     <%= f.label :description %><br />
     <%= f.text_area :description %>
   </div>
+   <div class="field">
+    
+    <%= f.file_field :photo %>
+  </div>
+    <% f.fields_for :address do |builder| %>  
+  <p>
+
+    <%= builder.label :city, "Question" %><br />  
+    <%= builder.text_area :city, :rows => 3 %>  
+  </p>  
+  <% end %>
   
-  hola1
-  <%= @cinema.address %>
-  <% f.fields_for(@cinema.address) do |ingredient_form| %>
-      holacc
-      <p>  
-      <%= ingredient_form.label :city %>  
-      </p>  
-   <% end %>
-   caracola
-  <% f.fields_for :address do |address| %>
-  <%= address.inspect %>
+  <%= f.fields_for :address do |address| %>
+  <%= address.label :city, "City" %>
+  <%= address.text_area :city, :rows =>3 %>
+  
+  <%# address.inspect %>
       <p>
       
         
@@ -38,7 +43,7 @@
       </p>
 
  
-    <%= render :partial => 'shared/address', :locals => {:f => address} %>
+    <%# render :partial => 'shared/address', :locals => {:f => address} %>
 
   <% end %>
   <div class="actions">

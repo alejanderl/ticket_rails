@@ -4,7 +4,11 @@
   <b>Name:</b>
   <%= @cinema.name %>
 </p>
-
+<p>
+  
+  <%= image_tag @cinema.photo.url(:large) %>
+  
+</p>
 <p>
   <b>Description:</b>
   <%= @cinema.description %>
