@@ -22,6 +22,7 @@
    <div class="field">
     
     <%= f.file_field :photo %>
+    <%= f.file_field :image %>
   </div>
     <% f.fields_for :address do |builder| %>  
   <p>
@@ -32,18 +33,9 @@
   <% end %>
   
   <%= f.fields_for :address do |address| %>
-  <%= address.label :city, "City" %>
-  <%= address.text_area :city, :rows =>3 %>
   
-  <%# address.inspect %>
-      <p>
-      
-        
-      
-      </p>
-
  
-    <%# render :partial => 'shared/address', :locals => {:f => address} %>
+    <%= render :partial => 'shared/address', :locals => {:f => address }%>
 
   <% end %>
   <div class="actions">

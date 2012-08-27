@@ -6,7 +6,8 @@
 </p>
 <p>
   
-  <%= image_tag @cinema.photo.url(:large) %>
+
+  <%= image_tag @cinema.image_url(:thumb) if @cinema.image? %>
   
 </p>
 <p>

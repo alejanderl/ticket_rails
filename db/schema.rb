@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120822171149) do
+ActiveRecord::Schema.define(:version => 20120827105945) do
 
   create_table "addresses", :force => true do |t|
     t.string   "line1"
@@ -28,12 +28,9 @@ ActiveRecord::Schema.define(:version => 20120822171149) do
   create_table "cinemas", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.datetime "photo_updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "image"
   end
 
   create_table "films", :force => true do |t|
