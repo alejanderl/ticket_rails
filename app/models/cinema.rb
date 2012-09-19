@@ -11,6 +11,6 @@ class Cinema < ActiveRecord::Base
    after_update :reprocess_photo
    private
    def reprocess_photo
-     photo.reprocess!
+     #photo.reprocess!
    end
 end

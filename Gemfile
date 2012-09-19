@@ -23,7 +23,11 @@ end
 gem 'jquery-rails'
 gem "paperclip", "~> 3.0"
 gem 'carrierwave'
-gem 'rmagick' 
+gem 'rmagick'
+gem 'devise'
+gem "cancan"
+gem "ice_cube"
+gem 'rb-readline'
 
 
 # To use ActiveModel has_secure_password

@@ -1,4 +1,14 @@
 TikcetRails::Application.routes.draw do
+  
+
+  resources :sessions
+
+  resources :rooms
+
+  resources :theaters
+
+  devise_for :users
+
   resources :selections
 
   get "ticket/index"
@@ -7,7 +17,7 @@ TikcetRails::Application.routes.draw do
 
   resources :cinemas
 
-  resources :users
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
