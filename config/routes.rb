@@ -1,9 +1,11 @@
 TikcetRails::Application.routes.draw do
   
 
-  resources :sessions
+  
 
-  resources :rooms
+  resources :rooms do
+    resources :sessions
+  end
 
   resources :theaters
 
@@ -16,6 +18,7 @@ TikcetRails::Application.routes.draw do
   resources :films
 
   resources :cinemas
+  
 
   
 
