@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @theater.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @theater.description %>
+</p>
+<%= image_tag @theater.image_url(:thumb) if @theater.image? %>
+
+
+<p>
+  <b>Address:</b>
+  <%= @theater.address.line1 %>
+  <%= @theater.address.city %>
+  
+</p>
+
+<%= link_to 'Edit', edit_theater_path(@theater) %> |
+<%= link_to 'Back', theaters_path %>

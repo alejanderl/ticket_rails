@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Date:</b>
+  <%= @session.date %>
+</p>
+
+<p>
+  <b>Stall available:</b>
+  <%= @session.stall_available %>
+</p>
+
+<p>
+  <b>Stall reserve:</b>
+  <%= @session.stall_reserve %>
+</p>
+
+<p>
+  <b>Exception:</b>
+  <%= @session.exception %>
+</p>
+
+
+<%= link_to 'Edit', edit_session_path(@session) %> |
+<%= link_to 'Back', sessions_path %>

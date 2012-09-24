@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  date: 2012-09-14 19:10:45
+  stall_available: 1
+  stall_reserve: 1
+  exception: false
+
+two:
+  date: 2012-09-14 19:10:45
+  stall_available: 1
+  stall_reserve: 1
+  exception: false

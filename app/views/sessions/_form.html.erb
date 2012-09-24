@@ -1,0 +1,41 @@
+<%= form_for([@room,@session]) do |f| %>
+  <% if @session.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@session.errors.count, "error") %> prohibited this session from being saved:</h2>
+
+      <ul>
+      <% @session.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.datetime_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :stall_available %><br />
+    <%= f.number_field :stall_available %>
+  </div>
+  <div class="field">
+    <%= f.label :stall_reserve %><br />
+    <%= f.number_field :stall_reserve %>
+  </div>
+  <%#= f.check_box :_repetition %>
+  <div class="repetion">
+    <p>Repetition rule</p>
+      <%= label_tag :start_on %>
+      <%= text_field_tag :start_on %>
+      <%= label_tag :finish_on %>
+      <%= text_field_tag :finish_on %>
+  </div>
+  <div class="field">
+    <%= f.label :exception %><br />
+    <%= f.check_box :exception %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
