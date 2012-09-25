@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th>Name</th>
     <th>Date</th>
     <th>Stall available</th>
     <th>Stall reserve</th>
@@ -13,6 +14,7 @@
 
 <% @sessions.each do |session| %>
   <tr>
+    <td><%= session.name %></td>
     <td><%= session.date %></td>
     <td><%= session.stall_available %></td>
     <td><%= session.stall_reserve %></td>
