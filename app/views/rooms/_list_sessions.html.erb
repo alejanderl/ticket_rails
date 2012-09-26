@@ -1,4 +1,28 @@
-      
-      
-      
-      
+<h1>Listing sessions</h1>
+
+<table>
+  <tr>
+    <th>Name  </th>
+    <th>Date</th>
+    <th>Stall available</th>
+    <th>Stall reserve</th>
+    <th>Exception</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sessions.each do |session| %>
+  <tr>
+    <td><%= session.name %></td>
+    <td><%= session.date %></td>
+    <td><%= session.stall_available %></td>
+    <td><%= session.stall_reserve %></td>
+    <td><%= session.exception %></td>
+    <td><%= link_to 'Show',room_session_path(session) %></td>
+     </tr>
+<% end %>
+</table>
+
+<br />
+

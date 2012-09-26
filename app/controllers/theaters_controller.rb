@@ -14,6 +14,7 @@ class TheatersController < ApplicationController
   # GET /theaters/1.json
   def show
     @theater = Theater.find(params[:id])
+    @rooms = @theater.rooms.all
 
     respond_to do |format|
       format.html # show.html.erb

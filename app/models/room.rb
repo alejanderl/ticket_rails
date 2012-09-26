@@ -3,6 +3,7 @@ class Room < ActiveRecord::Base
   attr_accessor :extra_values
   
   has_many :sessions
+  belongs_to :theater
   
 
 

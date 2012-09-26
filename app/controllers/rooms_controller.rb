@@ -14,9 +14,10 @@ class RoomsController < ApplicationController
   # GET /rooms/1.json
   def show
     @room = Room.find(params[:id])
-    @room.extra_values = "prueba"
-    logger.fatal @room.inspect
-     logger.fatal @room.extra_values
+    @sessions=@room.sessions.all
+    #@room.extra_values = "prueba"
+    #logger.fatal @room.inspect
+    #logger.fatal @room.extra_values
     
 
     respond_to do |format|

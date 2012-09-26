@@ -18,6 +18,7 @@
   <%= @theater.address.city %>
   
 </p>
+<%= render "list_rooms" %>
 
 <%= link_to 'Edit', edit_theater_path(@theater) %> |
 <%= link_to 'Back', theaters_path %>
