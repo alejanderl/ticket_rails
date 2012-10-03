@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121003074249) do
+ActiveRecord::Schema.define(:version => 20121003075658) do
 
   create_table "addresses", :force => true do |t|
     t.string   "line1"
@@ -44,8 +44,8 @@ ActiveRecord::Schema.define(:version => 20121003074249) do
     t.integer  "exception"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
-    t.integer  "roomId"
-    t.integer  "filmId"
+    t.integer  "room_id"
+    t.integer  "film_id"
   end
 
   create_table "films", :force => true do |t|

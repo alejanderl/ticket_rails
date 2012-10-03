@@ -3,13 +3,11 @@ TikcetRails::Application.routes.draw do
 
   
 
-  resources :events
+  
 
   resources :rooms do
-    resources :sessions
+    resources :events
   end
-  resources :sessions
-
  
   resources :theaters do 
     resources :rooms

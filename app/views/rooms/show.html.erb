@@ -20,12 +20,12 @@
   <%= @room.stall_total %>
 </p>
 <div id="sessions">
-  <%= render "list_sessions"%>
-  <p><%= link_to "Session", new_room_session_path( @room) %></p>
+  <%= render "list_events"%>
+  <p><%= link_to "Session", new_room_event_path( @room) %></p>
  
   
 </div>
 
 
 <%= link_to 'Edit', edit_room_path(@room) %> |
-<%= link_to 'Back', rooms_path %>
+<%= link_to 'Back', @theater %>

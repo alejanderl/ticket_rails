@@ -15,7 +15,8 @@ class RoomsController < ApplicationController
   # GET /rooms/1.json
   def show
     @room = Room.find(params[:id])
-    @sessions=@room.sessions.all
+    @events=@room.events.all
+    @theater = Theater.find(@room.theater_id)
     #@room.extra_values = "prueba"
     #logger.fatal @room.inspect
     #logger.fatal @room.extra_values
