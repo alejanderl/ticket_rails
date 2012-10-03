@@ -16,7 +16,8 @@ class SessionsController < ApplicationController
   # GET /sessions/1.json
   def show
     @session = Session.find(params[:id])
-
+    @room = Room.find(@session.room_id)
+    @theater = Theater.find(@sroom.theater_id)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @session }
@@ -26,7 +27,6 @@ class SessionsController < ApplicationController
   # GET /sessions/new
   # GET /sessions/new.json
   def new
-    
    
     @session = @room.sessions.build
     #respond_with(@session)
@@ -68,7 +68,7 @@ class SessionsController < ApplicationController
   # PUT /sessions/1.json
   def update
     @session = Session.find(params[:id])
-
+    @room = Room.find(@session.room_id)
     respond_to do |format|
       if @session.update_attributes(params[:session])
         format.html { redirect_to @session, notice: 'Session was successfully updated.' }
@@ -87,13 +87,17 @@ class SessionsController < ApplicationController
     @session.destroy
 
     respond_to do |format|
-      format.html { redirect_to sessions_url }
+      format.html { redirect_to rooms_url(@room) }
       format.json { head :no_content }
     end
   end
 
   def load_room
-   @room = Room.find(params[:room_id])
+    if params[:room_id].present?
+      @room = Room.find(params[:room_id])
+      @theater = Theater.find(@room.theater_id)
+    end
+   
   end
 
 end

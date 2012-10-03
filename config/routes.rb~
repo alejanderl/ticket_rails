@@ -1,4 +1,4 @@
-TikcetRails::Application.routes.draw do
+TicketRails::Application.routes.draw do
   
 
   
@@ -6,10 +6,12 @@ TikcetRails::Application.routes.draw do
   resources :rooms do
     resources :sessions
   end
-resources :sessions
+  resources :sessions
 
  
-  resources :theaters 
+  resources :theaters do 
+    resources :rooms
+  end
 
   devise_for :users
 
@@ -20,6 +22,8 @@ resources :sessions
   resources :films
 
   resources :cinemas
+  
+	match "/search-films/:film_name" => "search_films#index"
   
   
   

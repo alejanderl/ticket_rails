@@ -1,5 +1,6 @@
 class TicketController < ApplicationController
   def index
-    @results = Cinema.order(:name)
+    @results = Theater.order(:name).all
+    
   end
 end

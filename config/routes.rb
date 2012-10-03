@@ -3,6 +3,8 @@ TikcetRails::Application.routes.draw do
 
   
 
+  resources :events
+
   resources :rooms do
     resources :sessions
   end
@@ -12,6 +14,7 @@ TikcetRails::Application.routes.draw do
   resources :theaters do 
     resources :rooms
   end
+  resources :rooms
 
   devise_for :users
 
@@ -22,6 +25,7 @@ TikcetRails::Application.routes.draw do
   resources :films
 
   resources :cinemas
+  
   
   
   

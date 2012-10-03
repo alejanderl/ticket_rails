@@ -1,8 +1,9 @@
 class RoomsController < ApplicationController
   # GET /rooms
   # GET /rooms.json
+  before_filter :load_theater
   def index
-    @rooms = Room.all
+    @rooms = @theater.rooms.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -29,7 +30,9 @@ class RoomsController < ApplicationController
   # GET /rooms/new
   # GET /rooms/new.json
   def new
-    @room = Room.new
+    
+    @room = @theater.rooms.build
+   # @room = Room.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -45,14 +48,14 @@ class RoomsController < ApplicationController
   # POST /rooms
   # POST /rooms.json
   def create
-    @room = Room.new(params[:room])
+    @room = @theater.rooms.build(params[:room])
     @room.extra_values = (params[:start_on])
     
     logger.fatal "hola"+@room.inspect
     
     respond_to do |format|
       if @room.save
-        format.html { redirect_to @room, notice: 'Room was successfully created.' }
+        format.html { redirect_to @theater, notice: 'Room was successfully created.' }
         format.json { render json: @room, status: :created, location: @room }
       else
         format.html { render action: "new" }
@@ -84,8 +87,14 @@ class RoomsController < ApplicationController
     @room.destroy
 
     respond_to do |format|
-      format.html { redirect_to rooms_url }
+      format.html { redirect_to url_for(@theater) }
       format.json { head :no_content }
     end
+  end
+    def load_theater
+      if params[:theater_id].present?
+         @theater = Theater.find(params[:theater_id])
+      end
+  
   end
 end

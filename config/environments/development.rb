@@ -36,6 +36,6 @@ TikcetRails::Application.configure do
   config.assets.debug = true
   
   config.log_level = :fatal # In any environment initializer, or
-
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }  
   
 end
