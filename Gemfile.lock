@@ -84,6 +84,8 @@ GEM
       railties (= 3.2.6)
     rails-asset-jqueryui (0.0.3)
       jquery-rails
+    rails3-jquery-autocomplete (1.0.9)
+      rails (~> 3.0)
     railties (3.2.6)
       actionpack (= 3.2.6)
       activesupport (= 3.2.6)
@@ -132,6 +134,7 @@ DEPENDENCIES
   jquery-rails
   rails (= 3.2.6)
   rails-asset-jqueryui
+  rails3-jquery-autocomplete
   rb-readline
   rmagick
   sass-rails (~> 3.2.3)

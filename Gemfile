@@ -29,6 +29,7 @@ gem 'devise'
 gem "cancan"
 gem "ice_cube"
 gem 'rb-readline'
+gem 'rails3-jquery-autocomplete'
 
 
 # To use ActiveModel has_secure_password

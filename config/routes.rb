@@ -5,11 +5,16 @@ TikcetRails::Application.routes.draw do
 
   
 
+  resources :shows
+
   resources :rooms do
-    resources :events
+    resources :events do
+       get :autocomplete_show_name, :on => :collection
+    end
   end
  
-  resources :theaters do 
+  resources :theaters do
+    
     resources :rooms
   end
   resources :rooms
@@ -20,10 +25,12 @@ TikcetRails::Application.routes.draw do
 
   get "ticket/index"
 
-  resources :films
-
-  resources :cinemas
+  resources :films do
+    get :autocomplete_user_name, :on => :collection
+  end
   
+
+   
   
   
   
