@@ -4,7 +4,6 @@ class RoomsController < ApplicationController
   before_filter :load_theater
   def index
     @rooms = @theater.rooms.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @rooms }
