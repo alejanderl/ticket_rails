@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121006003310) do
+ActiveRecord::Schema.define(:version => 20121009095441) do
 
   create_table "addresses", :force => true do |t|
     t.string   "line1"
@@ -42,13 +42,14 @@ ActiveRecord::Schema.define(:version => 20121006003310) do
     t.integer  "stall_reserve"
     t.integer  "stall_total"
     t.integer  "exception"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
     t.integer  "room_id"
     t.integer  "show_id"
     t.datetime "end_date"
     t.decimal  "event_duration"
     t.string   "group_code"
+    t.integer  "serie_id",        :default => 0
   end
 
   create_table "films", :force => true do |t|
