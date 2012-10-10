@@ -1,0 +1,30 @@
+<h1>Listing rooms</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Repetition rule</th>
+    <th>Stall total</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @rooms.each do |room| %>
+  <tr>
+    <td><%= room.name %></td>
+    <td><%= room.description %></td>
+    <td><%= room.repetition_rule %></td>
+    <td><%= room.stall_total %></td>
+    <td><%= link_to 'Show', theater_room_path(@theater,room)%></td>
+    <td><%= link_to 'Edit', edit_theater_room_path(@theater,room) %></td>
+    <td><%= link_to 'Destroy', theater_room_path(@theater,room), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+
+</table>
+<p><%= link_to "Create new room", new_theater_room_path(@theater) %></p>
+
+<br />
+

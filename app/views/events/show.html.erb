@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @event.name %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @event.date %>
+</p>
+
+<p>
+  <b>Stall available:</b>
+  <%= @event.stall_available %>
+</p>
+
+<p>
+  <b>Stall reserve:</b>
+  <%= @event.stall_reserve %>
+</p>
+
+<p>
+  <b>Stall total:</b>
+  <%= @event.stall_total %>
+</p>
+
+<p>
+  <b>Exception:</b>
+  <%= @event.exception %>
+</p>
+
+
+<%= link_to 'Edit', edit_room_event_path(@room,@event) %> |
+<%= link_to 'Back', @room %>

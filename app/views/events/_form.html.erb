@@ -1,0 +1,73 @@
+<%= form_for([@room,@event]) do |f| %>
+  <% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% @event.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.datetime_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :event_duration %><br />
+    <%= f.number_field :event_duration %>(in hours)
+  </div>
+
+ 
+  <div class="field">
+    <%= f.label :stall_total %><br />
+    <%= f.number_field :stall_total %>
+  </div>
+  <div class="field">
+    
+    <%= f.check_box :exception %><%= f.label :exception %>
+  </div>
+  <div id="show_related">
+    <% temp = (@event.show_id!=0) ? Show.find(@event.show_id).name : "Find a show" %>
+  Find a Show:<%= f.autocomplete_field :show_id, autocomplete_show_name_room_events_path,:id_element => '#show_id_hidden', :value => temp %>
+ <input id="show_id_hidden" name="show_id_hidden" type="hidden" value="<%= @event.show_id %>" />
+  <%#= autocomplete_field_tag 'show_name',(@event.show_id.present?) ? Show.find(@event.show_id).name : "Find a film" ,autocomplete_show_name_room_events_path, :size => 25 ,:id_element => '#id'%>
+  
+  </div>
+  This fields are going to create recurrence events in combination with the ice-cube gem
+  <div id = "recurrence_box">
+    <%= label_tag "Recurrence rule" %>
+    <%= check_box_tag "recurrence[active]"  %>
+    
+    <div id="recurrence_fields">
+      
+
+    
+    <%= label_tag "Recurrence every" %>
+    <%= select_tag "recurrence[every]", options_for_select(Event::RECURRENCE, Event::RECURRENCE[1]),{:include_blank => true}%>
+   
+    <%= label_tag "Daily" %>
+    <%= select_tag "recurrence[daily]", options_for_select(Event::DAILY_RECURRENCE,Event::DAILY_RECURRENCE[2]), {:include_blank => true}%>
+   
+    <%= label_tag "Weekly" %>
+    <%= select_tag "recurrence[weekly]", options_for_select(Event::MONTHLY_RECURRENCE,Event::WEEKLY_RECURRENCE[1]), {:include_blank => true}%>
+    
+    <%= label_tag "Monthly" %>
+    <%= select_tag "recurrence[monthly]", options_for_select(Event::MONTHLY_RECURRENCE,Event::MONTHLY_RECURRENCE[1]), {:include_blank => true}%>
+    
+    <%= label_tag "End Date" %>
+    <%= text_field_tag "recurrence[end_date]",Time.now + 1.month %>
+    
+    </div>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
