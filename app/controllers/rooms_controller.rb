@@ -14,7 +14,12 @@ class RoomsController < ApplicationController
   # GET /rooms/1.json
   def show
     @room = Room.find(params[:id])
-    @events=@room.events.group(:serie_id)
+    Event.transaction do
+      @events1=@room.events.group(:serie_id)
+      @events2=@room.events.where(:serie_id => 0)
+    end
+    @events = (@events1 | @events2).sort_by &:date
+    
     @theater = Theater.find(@room.theater_id)
     
     #@room.extra_values = "prueba"
@@ -80,6 +85,7 @@ class RoomsController < ApplicationController
       end
     end
   end
+
 
   # DELETE /rooms/1
   # DELETE /rooms/1.json

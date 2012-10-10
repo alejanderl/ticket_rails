@@ -10,6 +10,9 @@ TikcetRails::Application.routes.draw do
   resources :rooms do
     resources :events do
        get :autocomplete_show_name, :on => :collection
+       collection do
+	 put :show_serie
+       end
     end
   end
  
@@ -29,7 +32,7 @@ TikcetRails::Application.routes.draw do
     get :autocomplete_user_name, :on => :collection
   end
   
-
+   match 'events/:serie_id/show_serie' => 'events#show_serie', :as => :show_event_serie
    
   
   
@@ -41,7 +44,7 @@ TikcetRails::Application.routes.draw do
   # first created -> highest priority.
 
   # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
+  #  	
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:
