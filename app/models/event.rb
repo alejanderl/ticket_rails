@@ -3,7 +3,7 @@ class Event < ActiveRecord::Base
   attr_accessible :date, :event_duration ,:exception, :name, :stall_total, :show_id
   
   validates_presence_of :room_id 
-  validates_date :date , :after => Time.now
+  validates_date :date , :after => Time.now - 1.hour
   validates :name, :length => { :minimum => 2 }  
   validates_numericality_of :event_duration , :greater_than => 0
   

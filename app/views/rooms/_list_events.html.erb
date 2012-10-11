@@ -1,17 +1,6 @@
 <h1>Listing events</h1>
-<script>
-  $(document).ready(function(){
 
-  $("a[id^='is-ajax']").bind('ajax:success', function(evt, data, status, xhr){
-    this2 = ($(this));
-    replace_ID=this2.attr("update");
-     
-    $("#"+replace_ID).after(data);
 
-  console.log(data);
-});
-  });
-</script>
 <table>
   <tr>
     <th>Serie  </th>
@@ -39,7 +28,7 @@ link_to_remote
        <%else%>
          <td><%= link_to 'Show',room_event_path(@room,event) %></td>
      <td><%= link_to 'Edit',edit_room_event_path(@room,event) %></td>
-      <td><%= link_to 'destroy',room_event_path(@room,event),method: :delete, data: {confirm: "Are you sure?"} %></td>
+      <td><%= link_to 'destroy',room_event_path(@room,event),:remote => true,method: :delete, data: {confirm: "Are you sure?"} %></td>
      
          
     <% end %>

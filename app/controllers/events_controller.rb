@@ -106,10 +106,12 @@ class EventsController < ApplicationController
     @event.destroy
 
     respond_to do |format|
+      format.js { render "delete_event"}
       format.html { redirect_to @room }
       format.json { head :no_content }
     end
   end
+  
   def load_room
     if params[:room_id].present?
       @room = Room.find(params[:room_id])
@@ -138,8 +140,9 @@ class EventsController < ApplicationController
 
       start_day = @event.date.to_time
       l = (params[:recurrence][:end_date].to_s)
+      logger.fatal l.to_s
       #final day for the recurrence
-      final_day = Date.strptime(l).to_time
+      final_day = Date.strptime(l,'%m/%d/%Y').to_time
       #carefull with infinite rules!!!
       final_day = start_day + 1.year if final_day > start_day + 1.year
       schedule = Schedule.new(start_day)
