@@ -1,0 +1,36 @@
+
+.globalWide {
+    width:100%;
+    background-color:#ccc;
+}
+
+#nav {
+   width:100%;
+   background-color:#ccc;
+}
+
+
+.centered {
+    width: 900px;
+    height: 20px;
+    margin: 0 auto;
+}
+
+#logo {
+    float: left;
+    margin-left:-60px;
+    height: 0;
+}
+
+#user_nav {
+    float:right;
+    font-weight: bold;
+    color:#fff;
+    & a {
+        text-decoration:none;
+        &:hover {
+            color:#39f;
+            background-color:none !important;
+        }
+    }
+}
