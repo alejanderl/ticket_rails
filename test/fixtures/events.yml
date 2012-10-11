@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  date: 2012-10-03 09:35:10
+  stall_available: 1
+  stall_reserve: 1
+  stall_total: 1
+  exception: 1
+
+two:
+  name: MyString
+  date: 2012-10-03 09:35:10
+  stall_available: 1
+  stall_reserve: 1
+  stall_total: 1
+  exception: 1
