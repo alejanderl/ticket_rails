@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TikcetRails</title>
+  <title>TicketRails</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   
@@ -14,9 +14,27 @@
   
 </head>
 <body>
-  <%= render "shared/sign_in" %>
-
-<%= yield %>
+  
+  <header>
+    
+    <div id="nav">
+      <div class="centered">
+        <div id="logo">
+        
+        <%= image_tag("logo_tkk.png") %>
+        </div>
+        <%= render "shared/sign_in" %>
+      </div>
+    </div>
+    
+  </header>
+  
+  <article>
+    <div class="centered">
+      <%= yield %>
+    </div>
+  </article>
+  
 
 </body>
  

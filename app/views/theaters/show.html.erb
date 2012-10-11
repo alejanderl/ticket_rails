@@ -1,21 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @theater.name %>
+<p >
+  <b>Theater:</b>  <h2><%= @theater.name %></h2>
 </p>
-
-<p>
-  <b>Description:</b>
-  <%= @theater.description %>
-</p>
-<%= image_tag @theater.image_url(:thumb) if @theater.image? %>
-
-
-<p>
-  <b>Address:</b>
+<b>Address:</b>
   <%= @theater.address.line1 %>
   <%= @theater.address.city %>
+
+<p>
+   <%= @theater.description %>
+</p>
+    <div class="image">
+      <%= image_tag @theater.image_url(:thumb) if @theater.image? %>
+    </div>
+
+<p>
+  
   
 </p>
 <%= render "list_rooms" %>
