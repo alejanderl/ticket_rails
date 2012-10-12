@@ -13,8 +13,11 @@
     <th></th>
     <th></th>
   </tr>
+<% logger.fatal events.inspect %>
+<% logger.fatal "partial" %>
+<% logger.fatal @events.inspect %>
 
-<% logger.fatal @event.inspect %>
+
 <% @events.each do |event| %>
   <tr id="serie-<%= event.serie_id%>">
   <% logger.fatal event.inspect %>

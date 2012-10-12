@@ -20,7 +20,7 @@
   <%= @room.stall_total %>
 </p>
 <div id="sessions">
-  <%= render "list_events", :collection => @events %>
+  <%= render "list_events", :events => @events %>
   <p><%= link_to "Session", new_room_event_path( @room) %></p>
  
   
