@@ -18,7 +18,7 @@ class RoomsController < ApplicationController
       @events1=@room.events.select(:serie_id).uniq
       @events2=@room.events.where(:serie_id => 0)
     end
-    @events = (@events1 | @events2).sort_by &:date
+    @events = (@events1 | @events2)
     
     @theater = Theater.find(@room.theater_id)
     
