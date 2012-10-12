@@ -18,9 +18,15 @@
 <% logger.fatal @events.inspect %>
 
 
-<% events.each do |event| %>
- hola
- <%= event.id %>
+<% @events.each do |t| %>
+ hola2
+ <% logger.fatal event.inspect %>
+ <% logger.fatal t.inspect %>
+ 
+ <%= t.id %>
+ <%= t.name %>
+ <>
+ <>
     <% end %>
 </table>
 
