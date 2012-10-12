@@ -15,7 +15,7 @@ class RoomsController < ApplicationController
   def show
     @room = Room.find(params[:id])
     Event.transaction do
-      @events1=@room.events.group(:serie_id)
+      @events1=@room.events.select(:serie_id).uniq
       @events2=@room.events.where(:serie_id => 0)
     end
     @events = (@events1 | @events2).sort_by &:date
@@ -49,7 +49,7 @@ class RoomsController < ApplicationController
   # GET /rooms/1/edit
   def edit
     @room = Room.find(params[:id])    
-    end
+  end
 
   # POST /rooms
   # POST /rooms.json
