@@ -7,7 +7,7 @@ gem 'rails', '3.2.6'
 
 
 group :production do
-  gem 'pg'
+  #gem 'pg'
 end
 
 group :development, :test do
