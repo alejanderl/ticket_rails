@@ -18,26 +18,9 @@
 <% logger.fatal @events.inspect %>
 
 
-<% @events.each do |event| %>
-  <tr id="serie-<%= event.serie_id%>">
-  <% logger.fatal event.inspect %>
-    <td><%=  ( event.is_serie )?  "yes": "no" %></td>
-    <td><%= event.name %></td>
-    <td><%= event.date %></td>
-    <td><%= event.stall_available %></td>
-    <td><%= event.stall_reserve %></td>
-    <td><%= event.exception %></td>
-    <% if event.is_serie %>
-     <td colspan="3"><%= link_to 'Show serie',show_event_serie_path(event.serie_id.to_i),:id => "is-ajax-#{event.serie_id}",:remote => true,:update => "serie-#{event.serie_id}"%></td>
-           
-       <%else%>
-         <td><%= link_to 'Show',room_event_path(@room,event) %></td>
-     <td><%= link_to 'Edit',edit_room_event_path(@room,event) %></td>
-      <td><%= link_to 'destroy',room_event_path(@room,event),:remote => true,method: :delete, data: {confirm: "Are you sure?"} %></td>
-     
-         
-    <% end %>
-   </tr>
+<% events.each do |event| %>
+ hola
+ <%= event.id %>
     <% end %>
 </table>
 
