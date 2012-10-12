@@ -1,6 +1,7 @@
 class FilmsController < ApplicationController
   # GET /films
   # GET /films.json
+  autocomplete :user, :email, :full => true
   def index
     @films = Film.all
 
