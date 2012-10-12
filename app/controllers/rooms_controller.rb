@@ -23,7 +23,7 @@ class RoomsController < ApplicationController
     @theater = Theater.find(@room.theater_id)
     
     #@room.extra_values = "prueba"
-    #logger.fatal @room.inspect
+    logger.fatal  @events.inspect
     #logger.fatal @room.extra_values
     
 
