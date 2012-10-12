@@ -16,7 +16,8 @@
 link_to_remote
 <% @events.each do |event| %>
   <tr id="serie-<%= event.serie_id%>">
-    <td><%=  ( event.is_serie )?  "no": "yes" %></td>
+  logger.fatal event.inspect
+    <td><%=  ( event.is_serie )?  "yes": "no" %></td>
     <td><%= event.name %></td>
     <td><%= event.date %></td>
     <td><%= event.stall_available %></td>
