@@ -4,13 +4,9 @@ class Cinema < ActiveRecord::Base
    accepts_nested_attributes_for :address
    #validations
    validates :name,  :presence => true
-   has_attached_file :photo , :styles => {:small => "150x150#", :large => "500x500>"}
+  # has_attached_file :photo , :styles => {:small => "150x150#", :large => "500x500>"}
    
-   mount_uploader :image, ImageUploader
+   #mount_uploader :image, ImageUploader
    
-   after_update :reprocess_photo
-   private
-   def reprocess_photo
-     #photo.reprocess!
-   end
+  
 end
