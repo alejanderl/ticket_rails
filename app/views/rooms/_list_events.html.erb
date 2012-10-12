@@ -14,6 +14,7 @@
     <th></th>
   </tr>
 link_to_remote
+<% logger.fatal @event.inspect %>
 <% @events.each do |event| %>
   <tr id="serie-<%= event.serie_id%>">
   <% logger.fatal event.inspect %>
