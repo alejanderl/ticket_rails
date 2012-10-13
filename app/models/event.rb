@@ -20,6 +20,8 @@ class Event < ActiveRecord::Base
   belongs_to :room
   has_one :show
   
+  scope :uniq_list , :select => ("DISTINCT ON (serie_id) *")
+  
   def check_overriding
     
     concurrent = Event.first(:conditions =>["date > ? AND end_date < ?", self.date,self.date])

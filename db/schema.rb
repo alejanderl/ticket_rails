@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(:version => 20121009095441) do
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
     t.integer  "cinema_id"
-    t.integer  "user_id"
     t.integer  "addressable_id"
     t.string   "addressable_type"
   end
@@ -78,18 +77,6 @@ ActiveRecord::Schema.define(:version => 20121009095441) do
   create_table "selections", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-  end
-
-  create_table "sessions", :force => true do |t|
-    t.datetime "date"
-    t.integer  "stall_available"
-    t.integer  "stall_reserve"
-    t.boolean  "exception"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-    t.integer  "room_id"
-    t.integer  "film_id"
-    t.string   "name"
   end
 
   create_table "shows", :force => true do |t|

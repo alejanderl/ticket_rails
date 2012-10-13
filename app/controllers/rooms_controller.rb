@@ -15,7 +15,7 @@ class RoomsController < ApplicationController
   def show
     @room = Room.find(params[:id])
     Event.transaction do
-      @events1=@room.events.select(:serie_id).uniq
+      @events1=@room.events.uniq_list
       @events2=@room.events.where(:serie_id => 0)
     end
     @events = (@events1 | @events2)
