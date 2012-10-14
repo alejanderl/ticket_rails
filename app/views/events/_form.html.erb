@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :event_duration %><br />
-    <%= f.number_field :event_duration %>(in hours)
+    <%= f.number_field :event_duration, :value => 1 %>(in hours)
   </div>
 
  
@@ -29,10 +29,7 @@
     <%= f.label :stall_total %><br />
     <%= f.number_field :stall_total %>
   </div>
-  <div class="field">
-    
-    <%= f.check_box :exception %><%= f.label :exception %>
-  </div>
+  
   <div id="show_related">
     <% temp = (@event.show_id!=0) ? Show.find(@event.show_id).name : "Find a show" %>
   Find a Show:<%= f.autocomplete_field :show_id, autocomplete_show_name_room_events_path,:id_element => '#show_id_hidden', :value => temp %>
@@ -42,28 +39,33 @@
   </div>
   This fields are going to create recurrence events in combination with the ice-cube gem
   <div id = "recurrence_box">
-    <%= label_tag "Recurrence rule" %>
-    <%= check_box_tag "recurrence[active]"  %>
+    <%= label_tag "Recurrence every" %>
+    <%= select_tag "recurrence[every]", options_for_select(Event::RECURRENCE),{:include_blank => true}%>
+   
     
     <div id="recurrence_fields">
       
-
+ 
     
-    <%= label_tag "Recurrence every" %>
-    <%= select_tag "recurrence[every]", options_for_select(Event::RECURRENCE, Event::RECURRENCE[1]),{:include_blank => true}%>
-   
-    <%= label_tag "Daily" %>
-    <%= select_tag "recurrence[daily]", options_for_select(Event::DAILY_RECURRENCE,Event::DAILY_RECURRENCE[2]), {:include_blank => true}%>
-   
-    <%= label_tag "Weekly" %>
-    <%= select_tag "recurrence[weekly]", options_for_select(Event::MONTHLY_RECURRENCE,Event::WEEKLY_RECURRENCE[1]), {:include_blank => true}%>
+    <div id="selector_daily">
+      <%= label_tag "Daily" %>
+      <%= select_tag "recurrence[daily]", options_for_select(Event::DAILY_RECURRENCE,Event::DAILY_RECURRENCE[2]), {:include_blank => true}%>
+    </div>
+    <div id="selector_weekly">
+      Sin implementar
+      <%= label_tag "Weekly" %>
+      <%= select_tag "recurrence[weekly]", options_for_select(Event::WEEKLY_RECURRENCE,Event::WEEKLY_RECURRENCE[1]), {:include_blank => true}%>
+    </div>
     
-    <%= label_tag "Monthly" %>
-    <%= select_tag "recurrence[monthly]", options_for_select(Event::MONTHLY_RECURRENCE,Event::MONTHLY_RECURRENCE[1]), {:include_blank => true}%>
-    
-    <%= label_tag "End Date" %>
-    <%= text_field_tag "recurrence[end_date]",Time.now + 1.month %>
-    
+     <div id="selector_monthly">
+      Sin implementar
+      <%= label_tag "Monthly" %>
+      <%= select_tag "recurrence[monthly]", options_for_select(Event::MONTHLY_RECURRENCE,Event::MONTHLY_RECURRENCE[1]), {:include_blank => true}%>
+    </div>
+     <div id="end_date"
+      <%= label_tag "End Date" %>
+      <%= text_field_tag "recurrence[end_date]",(Time.now + 1.month).strftime("%m/%d/%Y") %>
+    </div>
     </div>
   </div>
   

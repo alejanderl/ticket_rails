@@ -33,6 +33,7 @@ TikcetRails::Application.routes.draw do
   end
   
    match 'events/:serie_id/show_serie' => 'events#show_serie', :as => :show_event_serie
+    match 'events/remove_serie/:serie_id' => 'events#remove_serie', :as => :remove_event_serie
    
   
   

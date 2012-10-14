@@ -31,6 +31,7 @@ gem "ice_cube"
 gem 'rb-readline'
 gem 'rails3-jquery-autocomplete'
 gem 'validates_timeliness', '~> 3.0'
+gem 'jquery_datepicker'
 
 
 # To use ActiveModel has_secure_password

@@ -14,4 +14,6 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require autocomplete-rails
+//= require jquery-ui-sliderAccess.js
+//= require jquery-ui-timepicker-addon.js
 //= require_tree .

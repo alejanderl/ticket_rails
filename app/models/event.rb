@@ -3,11 +3,11 @@ class Event < ActiveRecord::Base
   attr_accessible :date, :event_duration ,:exception, :name, :stall_total, :show_id
   
   validates_presence_of :room_id 
-  validates_date :date , :after => Time.now - 1.hour
+  validates_date :date , :after => Time.now - 1.day
   validates :name, :length => { :minimum => 2 }  
   validates_numericality_of :event_duration , :greater_than => 0
   
-  RECURRENCE = ["Daily","Weekly","Monthly","Yearly"]
+  RECURRENCE = [["Daily","daily"],["Weekly","weekly"],["Monthly","monthly"]]
  
   DAILY_RECURRENCE=[["1 Day",1],["2 Days",2],["3 Days",3],["4 Days",4],["5 Days",5],["6 Days",6],["7 Days",7]]
   

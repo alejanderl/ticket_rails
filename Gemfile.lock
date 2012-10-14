@@ -58,6 +58,7 @@ GEM
     jquery-rails (2.0.2)
       railties (>= 3.2.0, < 5.0)
       thor (~> 0.14)
+    jquery_datepicker (0.4)
     json (1.7.4)
     mail (2.4.4)
       i18n (>= 0.4.0)
@@ -135,6 +136,7 @@ DEPENDENCIES
   devise
   ice_cube
   jquery-rails
+  jquery_datepicker
   pg
   rails (= 3.2.6)
   rails-asset-jqueryui

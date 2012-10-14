@@ -7,6 +7,21 @@ class EventsController < ApplicationController
   after_filter :recurrences_save, :only => [:create, :update]
 
   autocomplete :show, :name, :full => true
+  
+  def remove_serie
+   
+    Event.destroy_all("serie_id = #{params[:serie_id]}")
+    
+    respond_to do |format|
+      format.html {
+     render :nothing => true, :status => 200, :content_type => 'text/html'    
+      }
+    end
+    
+  end
+  
+  
+  
   def index
     @events = @room.events.all
 
@@ -128,7 +143,7 @@ class EventsController < ApplicationController
   
   def recurrences_save
     
-    if(params[:recurrence][:active].to_i==1)
+    if(params[:recurrence][:every]!="")
       
       #day when the recurrence event is starting
       if @event.serie_id == 0
@@ -147,7 +162,7 @@ class EventsController < ApplicationController
       final_day = start_day + 1.year if final_day > start_day + 1.year
       schedule = Schedule.new(start_day)
        
-      if(params[:recurrence][:every]==Event::RECURRENCE[0].to_s)
+      if(params[:recurrence][:every]==Event::RECURRENCE[0][1].to_s)
         daily_recurrence = params[:recurrence][:daily].to_f
           
         
@@ -170,7 +185,6 @@ class EventsController < ApplicationController
             break if t > final_day
           end
           end
-          
           
       end
       
