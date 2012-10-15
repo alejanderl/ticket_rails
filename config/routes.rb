@@ -20,7 +20,7 @@ TikcetRails::Application.routes.draw do
     
     resources :rooms
   end
-  
+  rake
 
   devise_for :users
 
