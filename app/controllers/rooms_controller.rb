@@ -90,8 +90,8 @@ class RoomsController < ApplicationController
   # DELETE /rooms/1
   # DELETE /rooms/1.json
   def destroy
-    #@room = Room.find(params[:id])
-    #@room.destroy
+    @room = Room.find(params[:id])
+    @room.destroy
 
     respond_to do |format|
       format.html { redirect_to url_for(@theater) }
