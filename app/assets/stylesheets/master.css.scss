@@ -3,16 +3,21 @@
     width:100%;
     background-color:#ccc;
 }
+body {
+    margin: 0;
+    background-color:#ddd;
+}
 
 #nav {
    width:100%;
-   background-color:#ccc;
+   height: 100px;
+   background:url( image-path('faldon.png'))  repeat-x ;
 }
 
 
 .centered {
     width: 900px;
-    height: 20px;
+    
     margin: 0 auto;
 }
 
@@ -33,4 +38,31 @@
             background-color:none !important;
         }
     }
+}
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+ 
+ @mixin gradient-grey {
+background: #f7f7f7; /* Old browsers */
+background: -moz-linear-gradient(top, #f7f7f7 0%, #cccccc 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f7f7f7), color-stop(100%,#cccccc)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #f7f7f7 0%,#cccccc 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #f7f7f7 0%,#cccccc 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #f7f7f7 0%,#cccccc 100%); /* IE10+ */
+background: linear-gradient(to bottom, #f7f7f7 0%,#cccccc 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */ 
+ }
+
+#footer {
+    height:200px;
+    border-top:1px solid #ccc;
+    @include gradient-grey();
+    
 }

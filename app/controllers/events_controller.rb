@@ -9,14 +9,14 @@ class EventsController < ApplicationController
   autocomplete :show, :name, :full => true
   
   def remove_serie
-   
+    @event  = Event.where(:serie_id => params[:serie_id]).first
     Event.destroy_all("serie_id = #{params[:serie_id]}")
-    
     respond_to do |format|
       format.html {
      render :nothing => true, :status => 200, :content_type => 'text/html'    
       }
     end
+    
     
   end
   
