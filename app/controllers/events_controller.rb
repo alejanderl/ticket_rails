@@ -9,15 +9,13 @@ class EventsController < ApplicationController
   autocomplete :show, :name, :full => true
   
   def remove_serie
-    @event  = Event.where(:serie_id => params[:serie_id]).first
+   #@event  = Event.where(:serie_id => params[:serie_id]).first
     Event.destroy_all("serie_id = #{params[:serie_id]}")
     respond_to do |format|
       format.html {
      render :nothing => true, :status => 200, :content_type => 'text/html'    
       }
-    end
-    
-    
+    end   
   end
   
   
@@ -50,9 +48,9 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
-    @event = Event.find(params[:id])
+    @event = Event.includes(:room).find(params[:id])
     
-    @room = Room.find(@event.room_id)
+    @room = @event.room
     @theater = Theater.find(@room.theater_id)
 
     respond_to do |format|
@@ -141,6 +139,8 @@ class EventsController < ApplicationController
     
   end
   
+  private
+  
   def recurrences_save
     
     if(params[:recurrence][:every]!="")
@@ -150,9 +150,6 @@ class EventsController < ApplicationController
         @event.serie_id = @event.id
         @event.save
       end
-      
-      
-
       start_day = @event.date.to_time
       l = (params[:recurrence][:end_date].to_s)
       logger.fatal l.to_s
@@ -164,8 +161,6 @@ class EventsController < ApplicationController
        
       if(params[:recurrence][:every]==Event::RECURRENCE[0][1].to_s)
         daily_recurrence = params[:recurrence][:daily].to_f
-          
-        
         schedule.add_recurrence_rule Rule.daily(daily_recurrence)
           i = 0
           Event.transaction do 

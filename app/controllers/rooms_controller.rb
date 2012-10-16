@@ -19,14 +19,7 @@ class RoomsController < ApplicationController
       @events2=@room.events.where(:serie_id => 0)
     end
     @events = (@events1 | @events2)
-    
     @theater = Theater.find(@room.theater_id)
-    
-    #@room.extra_values = "prueba"
-    logger.fatal  @events.inspect
-    #logger.fatal @room.extra_values
-    
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @room }
@@ -57,7 +50,7 @@ class RoomsController < ApplicationController
     @room = @theater.rooms.build(params[:room])
     @room.extra_values = (params[:start_on])
     
-    logger.fatal "hola"+@room.inspect
+    
     
     respond_to do |format|
       if @room.save
@@ -74,7 +67,7 @@ class RoomsController < ApplicationController
   # PUT /rooms/1.json
   def update
     @room = Room.find(params[:id])
-    logger.fatal "hola"
+    
     respond_to do |format|
       if @room.update_attributes(params[:room])
         format.html { redirect_to @room, notice: 'Room was successfully updated.' }

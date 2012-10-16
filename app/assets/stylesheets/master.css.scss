@@ -25,6 +25,11 @@ body {
     float: left;
     margin-left:-60px;
     height: 0;
+    a:hover {
+        
+        background-color:transparent;
+    
+    }
 }
 
 #user_nav {
@@ -48,6 +53,11 @@ body {
 	line-height: 0;
 	height: 0;
 }
+
+
+
+
+
  
  @mixin gradient-grey {
 background: #f7f7f7; /* Old browsers */
@@ -59,6 +69,44 @@ background: -ms-linear-gradient(top, #f7f7f7 0%,#cccccc 100%); /* IE10+ */
 background: linear-gradient(to bottom, #f7f7f7 0%,#cccccc 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */ 
  }
+ 
+ 
+ .box_container {
+    
+    min-height:100px;
+    width:150px;
+    float:left;
+    border:1px solid #ddd;
+    border-bottom: 1px solid #BBB;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    
+    
+    .name {
+        
+        font-size:16px;
+        font-shadow: 0px 0px 1px 0px #fff;
+        margin-bottom:10px;
+        & a {
+            color:#333;
+            text-decoration: none;
+            &:hover {
+                background-color:transparent;
+                text-decoration:underline;
+                color:#000;
+            }
+        }
+    }
+    
+    .image img{
+        border-radius:5px;
+    }
+    @include gradient-grey();
+}
+
+ 
+ 
 
 #footer {
     height:200px;

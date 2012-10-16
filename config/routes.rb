@@ -5,6 +5,12 @@ TikcetRails::Application.routes.draw do
 
   
 
+  get "events_board/show"
+
+  get "events_board/index"
+  
+  
+
   resources :shows
 
   resources :rooms do
@@ -33,8 +39,8 @@ TikcetRails::Application.routes.draw do
   end
   
    match 'events/:serie_id/show_serie' => 'events#show_serie', :as => :show_event_serie
-    match 'events/remove_serie/:serie_id' => 'events#remove_serie', :as => :remove_event_serie
-   
+   match 'events/remove_serie/:serie_id' => 'events#remove_serie', :as => :remove_event_serie
+   match 'events/:id' => 'events#show', :as => :event_path
   
   
   
@@ -91,7 +97,7 @@ TikcetRails::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   # root :to => 'welcome#index'
-  root to: 'ticket#index', as: 'ticket'
+  root to: 'events_board#index', as: 'events_board'
 
   # See how all your routes lay out with "rake routes"
 

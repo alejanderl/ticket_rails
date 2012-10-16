@@ -1,6 +1,8 @@
 class Event < ActiveRecord::Base
   
-  attr_accessible :date, :event_duration ,:exception, :name, :stall_total, :show_id
+  attr_accessible :date, :event_duration ,:exception, :name, :stall_total, :show_id, :image
+  
+  mount_uploader :image, ImageUploader
   
   validates_presence_of :room_id 
   validates_date :date , :after => (Time.now - 2.day)

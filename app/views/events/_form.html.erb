@@ -24,7 +24,10 @@
     <%= f.number_field :event_duration, :value => 1 %>(in hours)
   </div>
 
- 
+   <div id="image">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
   <div class="field">
     <%= f.label :stall_total %><br />
     <%= f.number_field :stall_total %>
