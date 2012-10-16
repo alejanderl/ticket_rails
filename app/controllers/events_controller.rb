@@ -155,7 +155,7 @@ class EventsController < ApplicationController
       logger.fatal l.to_s
       #final day for the recurrence
       final_day = Date.strptime(l,'%m/%d/%Y').to_time
-      #carefull with infinite rules!!!
+      #carefull with infinite rules!!! 
       final_day = start_day + 1.year if final_day > start_day + 1.year
       schedule = Schedule.new(start_day)
        
