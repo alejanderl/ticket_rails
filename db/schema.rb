@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121016101844) do
+ActiveRecord::Schema.define(:version => 20121017124638) do
 
   create_table "addresses", :force => true do |t|
     t.string   "line1"
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(:version => 20121016101844) do
     t.decimal  "event_duration"
     t.string   "group_code"
     t.integer  "serie_id",        :default => 0
-    t.string   "image"
+    t.integer  "image_id"
   end
 
   create_table "films", :force => true do |t|
@@ -63,6 +63,14 @@ ActiveRecord::Schema.define(:version => 20121016101844) do
   create_table "films_shows", :id => false, :force => true do |t|
     t.integer "film_id"
     t.integer "show_id"
+  end
+
+  create_table "images", :force => true do |t|
+    t.string   "name"
+    t.string   "file"
+    t.string   "alt_text"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "rooms", :force => true do |t|

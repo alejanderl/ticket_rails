@@ -24,10 +24,13 @@
     <%= f.number_field :event_duration, :value => 1 %>(in hours)
   </div>
 
-   <div id="image">
-    <%= f.label :image %>
-    <%= f.file_field :image %>
-  </div>
+   <%= f.fields_for :image do |images| %>
+  
+ 
+    <%= render :partial => 'shared/image', :locals => {:f => images }%>
+
+  <% end %>
+  
   <div class="field">
     <%= f.label :stall_total %><br />
     <%= f.number_field :stall_total %>

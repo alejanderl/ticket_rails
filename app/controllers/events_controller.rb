@@ -48,7 +48,7 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
-    @event = Event.includes(:room).find(params[:id])
+    @event = Event.includes(:room, :image).find(params[:id])
     
     @room = @event.room
     @theater = Theater.find(@room.theater_id)
@@ -64,7 +64,7 @@ class EventsController < ApplicationController
   def new
     @event = @room.events.build
     @event.show_id = 0
-    
+    @event.build_image
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @event }
@@ -80,7 +80,7 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = @room.events.build(params[:event])
-
+    
     respond_to do |format|
       if @event.save
         format.html { redirect_to @room, notice: 'Event was successfully created.' }
@@ -152,7 +152,7 @@ class EventsController < ApplicationController
       end
       start_day = @event.date.to_time
       l = (params[:recurrence][:end_date].to_s)
-      logger.fatal l.to_s
+      
       #final day for the recurrence
       final_day = Date.strptime(l,'%m/%d/%Y').to_time
       #carefull with infinite rules!!! 
@@ -168,9 +168,12 @@ class EventsController < ApplicationController
           schedule.each_occurrence do |t|
           
           var_name = "@event" + i.to_s
+          params[:event][:image_attributes][:file]= ""
           
           current_event=self.instance_variable_set(var_name,@room.events.build(params[:event]))
+          current_event.build_image
           current_event.serie_id = @event.serie_id
+          current_event.image_id = @event.image_id
           current_event.date = t
           
           

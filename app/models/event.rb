@@ -1,8 +1,8 @@
 class Event < ActiveRecord::Base
   
-  attr_accessible :date, :event_duration ,:exception, :name, :stall_total, :show_id, :image
+  attr_accessible :date, :event_duration ,:exception, :name, :stall_total, :show_id, :image_attributes
   
-  mount_uploader :image, ImageUploader
+  
   
   validates_presence_of :room_id 
   validates_date :date , :after => (Time.now - 2.day)
@@ -21,6 +21,9 @@ class Event < ActiveRecord::Base
 
   belongs_to :room
   has_one :show
+  belongs_to :image
+  
+  accepts_nested_attributes_for :image
   
   scope :uniq_list , :select => ("DISTINCT ON (serie_id) *")
   

@@ -6,7 +6,7 @@
       <%= link_to event.name,event_path_url(event.id) %>
     </div>
     <div class="image">
-      <%= image_tag event.image_url(:thumb_150) if event.image? %>
+      <%= image_tag event.image.file_url(:thumb_150) if event.image.file? %>
     </div>
   </div>
   

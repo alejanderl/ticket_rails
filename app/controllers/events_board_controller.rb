@@ -4,8 +4,8 @@ class EventsBoardController < ApplicationController
 
   def index
     Event.transaction do
-          @events1=Event.uniq_list
-          @events2=Event.where(:serie_id => 0)
+          @events1=Event.includes(:image, :room).uniq_list
+          @events2=Event.includes(:image, :room).where(:serie_id => 0)
         end
         @events = (@events1 | @events2)
         

@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+ <div class="image">
+      <%= image_tag @event.image.file_url(:thumb) if @event.image.file? %>
+    </div>
+
 <p>
   <b>Name:</b>
   <%= @event.name %>
