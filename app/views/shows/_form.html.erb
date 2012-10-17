@@ -23,6 +23,10 @@
     <%= f.label :content_related %><br />
     <%= f.number_field :content_related %>
   </div>
+    <%= f.fields_for :image do |images| %>
+      <%= render :partial => 'shared/image', :locals => {:f => images } %>
+    <% end %>
+    
   <div class="actions">
     <%= f.submit %>
   </div>

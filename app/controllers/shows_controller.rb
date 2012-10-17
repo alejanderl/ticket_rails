@@ -25,7 +25,7 @@ class ShowsController < ApplicationController
   # GET /shows/new.json
   def new
     @show = Show.new
-
+    @show.build_image
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @show }
