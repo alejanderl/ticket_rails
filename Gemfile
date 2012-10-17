@@ -32,6 +32,7 @@ gem 'rb-readline'
 gem 'rails3-jquery-autocomplete'
 gem 'validates_timeliness', '~> 3.0'
 gem 'jquery_datepicker'
+gem 'carrierwave-ftp', :require => 'carrierwave/storage/ftp/all' # both FTP/SFTP
 
 
 # To use ActiveModel has_secure_password
