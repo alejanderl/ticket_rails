@@ -13,13 +13,13 @@ class RoomsController < ApplicationController
   # GET /rooms/1
   # GET /rooms/1.json
   def show
-    @room = Room.find(params[:id])
+    @room = Room.includes(:theater).find(params[:id])
     Event.transaction do
       @events1=@room.events.uniq_list
       @events2=@room.events.where(:serie_id => 0)
     end
     @events = (@events1 | @events2)
-    @theater = Theater.find(@room.theater_id)
+    @theater = @room.theater
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @room }

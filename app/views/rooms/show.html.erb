@@ -1,24 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
-  <%= @room.name %>
+  
+  <h2><%= link_to @theater.name, @theater%></h2>
+   <h1><%= @room.name %></h1>
 </p>
 
 <p>
-  <b>Description:</b>
+ 
   <%= @room.description %>
 </p>
 
-<p>
-  <b>Repetition rule:</b>
-  <%= @room.repetition_rule %>
-</p>
 
-<p>
-  <b>Stall total:</b>
-  <%= @room.stall_total %>
-</p>
 <div id="sessions">
   <%= render "list_events", :events => @events %>
   <p><%= link_to "Session", new_room_event_path( @room) %></p>

@@ -4,7 +4,9 @@
   <b>Name:</b>
   <%= @show.name %>
 </p>
-
+<div class="image">
+      <%= image_tag @show.image.file_url(:thumb) if @show.image.file? %>
+    </div>
 <p>
   <b>Description:</b>
   <%= @show.description %>

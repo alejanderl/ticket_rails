@@ -20,7 +20,7 @@ class Event < ActiveRecord::Base
   after_validation :calculate_end_date
 
   belongs_to :room
-  has_one :show
+  belongs_to :show
   belongs_to :image
   
   accepts_nested_attributes_for :image

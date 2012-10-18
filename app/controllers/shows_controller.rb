@@ -40,6 +40,7 @@ class ShowsController < ApplicationController
   # POST /shows
   # POST /shows.json
   def create
+    logger.fatal params[:show]
     @show = Show.new(params[:show])
 
     respond_to do |format|

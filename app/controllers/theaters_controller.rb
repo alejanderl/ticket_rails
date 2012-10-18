@@ -13,8 +13,8 @@ class TheatersController < ApplicationController
   # GET /theaters/1
   # GET /theaters/1.json
   def show
-    @theater = Theater.find(params[:id])
-    @rooms = @theater.rooms.all
+    @theater = Theater.includes(:rooms).find(params[:id])
+    @rooms = @theater.rooms
     
    
     respond_to do |format|
