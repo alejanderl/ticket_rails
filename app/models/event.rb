@@ -22,6 +22,7 @@ class Event < ActiveRecord::Base
   belongs_to :room
   belongs_to :show
   belongs_to :image
+  before_save :default_image
   
   accepts_nested_attributes_for :image
   
@@ -54,9 +55,17 @@ class Event < ActiveRecord::Base
   def calculate_end_date    
     self.end_date = self.date + self.event_duration.hours
   end
-  
- 
-  
+
+ def default_image
+   logger.fatal self.inspect.to_s
+    if self.show_id != 0 
+      show = Show.find(self.show_id)
+      self.build_image
+      self.image_id = show.image_id
+      
+    end
+  end
+
 
   
 end

@@ -5,6 +5,7 @@ class EventsController < ApplicationController
   before_filter :load_room
   before_filter :get_show_id  , :only => [:create, :update]
   after_filter :recurrences_save, :only => [:create, :update]
+  
 
   autocomplete :show, :name, :full => true
   
@@ -52,7 +53,7 @@ class EventsController < ApplicationController
     
     @room = @event.room
     @theater = Theater.find(@room.theater_id)
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @event }
@@ -79,7 +80,9 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
+    
     @event = @room.events.build(params[:event])
+    
     
     respond_to do |format|
       if @event.save
@@ -95,9 +98,9 @@ class EventsController < ApplicationController
   # PUT /events/1
   # PUT /events/1.json
   def update
-    @event = Event.find(params[:id])
-       
-    @room = Room.find(@event.room_id)
+    @event = Event.includes(:room,:image).find(params[:id])
+    @room = @event.room
+    
     get_show_id
    # @event.show_id = 2
     respond_to do |format|
@@ -141,8 +144,10 @@ class EventsController < ApplicationController
   
   private
   
+ 
+  
   def recurrences_save
-    
+
     if(params[:recurrence][:every]!="")
       
       #day when the recurrence event is starting
