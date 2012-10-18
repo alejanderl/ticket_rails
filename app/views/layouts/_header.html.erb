@@ -1,0 +1,20 @@
+<header>
+    
+    <div id="nav">
+      <div class="centered">
+        <div id="logo">
+        
+        <%= link_to image_tag("logo_tkk2.png"), "/"%>
+        </div>
+        <div id="top_menu">
+          <ul>
+            <li><%= link_to "Theaters",theaters_url %></li>
+            <li><%= link_to "Shows",shows_url %></li>            
+          </ul>
+          
+        </div>
+        <%= render "shared/sign_in" %>
+      </div>
+    </div>
+    
+</header>

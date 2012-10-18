@@ -1,3 +1,12 @@
+$global_transition_time :500ms;
+$transition_style : linear;
+*{
+    -webkit-transition: all $global_transition_time  $transition_style ;
+    -moz-transition: all $global_transition_time  $transition_style ;
+    -ms-transition: all $global_transition_time  $transition_style ;
+    -o-transition: all $global_transition_time  $transition_style ;
+    transition: all $global_transition_time  $transition_style ;
+}
 
 .globalWide {
     width:100%;
@@ -29,6 +38,27 @@ body {
         
         background-color:transparent;
     
+    }
+}
+#top_menu {
+    float:left;
+    li {
+        float:left;
+        list-style: none;
+        margin-left: 10px;
+        a{
+            color: #ccc;
+            text-decoration: none;
+            text-shadow: 0 -1px 0 black;
+            font-weight: bold;
+            &:hover{
+                color: #ddd;
+                text-shadow: 0 0px 2px #333;
+                background-color: transparent;
+                
+                font-size: 110%;
+            }
+        }
     }
 }
 
