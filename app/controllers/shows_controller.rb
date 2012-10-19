@@ -3,11 +3,8 @@ class ShowsController < ApplicationController
   # GET /shows.json
   def index
     @shows = Show.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @shows }
-    end
+    @the_list = theme_variables(@shows)
+    render "shared/_list_of_items"
   end
 
   # GET /shows/1

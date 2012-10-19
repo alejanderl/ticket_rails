@@ -21,7 +21,7 @@ TikcetRails::Application.routes.draw do
        end
     end
   end
- 
+ resources :events
   resources :theaters do
     
     resources :rooms

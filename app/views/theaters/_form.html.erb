@@ -19,10 +19,9 @@
     <%= f.label :description %><br />
     <%= f.text_area :description %>
   </div>
-  <div id="image">
-    <%= f.label :image %>
-    <%= f.file_field :image %>
-  </div>
+   <%= f.fields_for :image do |images| %>
+      <%= render :partial => 'shared/image', :locals => {:f => images } %>
+    <% end %>
   <%= f.fields_for :address do |address| %>
   
  

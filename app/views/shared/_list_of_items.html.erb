@@ -1,0 +1,13 @@
+<% @the_list.each do |t|%>
+
+  <div class="box_container">
+    <div class="name">
+      <%= link_to t.name,t.url %>
+    </div>
+    <div class="image">
+      <%= image_tag t.image if t.image.present? %>
+    </div>
+  </div>
+  
+  
+<% end %>

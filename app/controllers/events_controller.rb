@@ -24,10 +24,9 @@ class EventsController < ApplicationController
   def index
     @events = @room.events.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @events }
-    end
+   @the_list = theme_variables(@events)
+        
+        render "shared/_list_of_items"
   end
   
   def show_serie

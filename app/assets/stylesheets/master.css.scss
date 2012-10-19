@@ -138,6 +138,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', end
     
     .image img{
         border-radius:5px;
+        box-shadow: 000 -1px 1px #666, 0 1px 0 #ddd, -1px 0 0 0 #bbb;
+
     }
     @include gradient-grey();
 }

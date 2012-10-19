@@ -8,10 +8,8 @@ class EventsBoardController < ApplicationController
           @events2=Event.includes(:image, :room, :show).where(:serie_id => 0)
         end
         @events = (@events1 | @events2)
+        @the_list = theme_variables(@events)
         
-     respond_to do |format|
-        format.html # show.html.erb
-        format.json { render json: @room }
-     end
+        render "shared/_list_of_items"
   end
 end

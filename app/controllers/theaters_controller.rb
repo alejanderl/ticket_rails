@@ -4,10 +4,9 @@ class TheatersController < ApplicationController
   def index
     @theaters = Theater.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @theaters }
-    end
+   @the_list = theme_variables(@theaters)
+        
+        render "shared/_list_of_items"
   end
 
   # GET /theaters/1
@@ -28,6 +27,7 @@ class TheatersController < ApplicationController
   def new
     @theater = Theater.new
     @theater.build_address
+    @theater.build_image
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @theater }
