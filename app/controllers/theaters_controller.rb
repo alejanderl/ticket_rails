@@ -12,7 +12,7 @@ class TheatersController < ApplicationController
   # GET /theaters/1
   # GET /theaters/1.json
   def show
-    @theater = Theater.includes(:rooms).find(params[:id])
+    @theater = Theater.includes(:rooms, :image).find(params[:id])
     @rooms = @theater.rooms
     
    

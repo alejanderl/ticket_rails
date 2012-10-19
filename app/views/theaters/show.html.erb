@@ -11,7 +11,7 @@
    <%= @theater.description %>
 </p>
     <div class="image">
-      <%= image_tag @theater.image.file_url(:thumb) if @theater.image? %>
+      <%= image_tag @theater.image.file_url(:thumb) if @theater.image.file? %>
     </div>
 
 <p>
