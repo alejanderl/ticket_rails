@@ -165,8 +165,19 @@ class EventsController < ApplicationController
       schedule = Schedule.new(start_day)
        
       if(params[:recurrence][:every]==Event::RECURRENCE[0][1].to_s)
-        daily_recurrence = params[:recurrence][:daily].to_f
-        schedule.add_recurrence_rule Rule.daily(daily_recurrence)
+        recurrence_value = params[:recurrence][:daily].to_f
+        schedule.add_recurrence_rule Rule.daily(recurrence_value)
+      end
+      
+      if(params[:recurrence][:every]==Event::RECURRENCE[0][2].to_s)
+        
+        recurrence_value = params[:recurrence][:weekely]
+        logger.fatal recurrence_value
+        #schedule.add_recurrence_rule Rule.daily(recurrence_value)
+      end
+      
+      
+      
           i = 0
           Event.transaction do 
           
@@ -189,7 +200,7 @@ class EventsController < ApplicationController
           end
           end
           
-      end
+  
       
     end
     

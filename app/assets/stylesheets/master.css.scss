@@ -15,7 +15,13 @@ $transition_style : linear;
 body {
     margin: 0;
     background-color:#ddd;
-}
+    background:url( image-path('bg_clothe.jpg'))  repeat ;
+
+    box-shadow: 0 0 0 1px rgba(155, 155, 155, 0.3), 0 2px 2px rgba(0, 0, 0, 0.1);
+
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
+    }
+    
 
 #nav {
    width:100%;

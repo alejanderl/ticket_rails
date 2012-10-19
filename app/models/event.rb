@@ -56,14 +56,14 @@ class Event < ActiveRecord::Base
     self.end_date = self.date + self.event_duration.hours
   end
 
- def default_image
-   logger.fatal self.inspect.to_s
-    if self.show_id != 0 
-      show = Show.find(self.show_id)
-      self.build_image
-      self.image_id = show.image_id
-      
-    end
+  def default_image
+    
+     if self.show_id != 0 
+       show = Show.find(self.show_id)
+       self.build_image
+       self.image_id = show.image_id
+       
+     end
   end
 
 
