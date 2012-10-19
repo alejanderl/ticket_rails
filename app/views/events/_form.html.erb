@@ -55,16 +55,16 @@
     
     <div id="selector_daily">
       <%= label_tag "Daily" %>
-      <%= select_tag "recurrence[daily]", options_for_select(Event::DAILY_RECURRENCE,Event::DAILY_RECURRENCE[2]), {:include_blank => true}%>
+      <%= select_tag "recurrence[daily]", options_for_select(Event::DAILY_RECURRENCE,Event::DAILY_RECURRENCE[2]), {}%>
     </div>
     <div id="selector_weekly">
-      Sin implementar
+     
       <%= label_tag "Weekly" %>
-      <%= select_tag "recurrence[weekly]", options_for_select(Event::WEEKLY_RECURRENCE,Event::WEEKLY_RECURRENCE[1]), {:include_blank => true, :multiple => true}%>
+      <%= select_tag "recurrence[weekly]", options_for_select(Event::WEEKLY_RECURRENCE,Event::WEEKLY_RECURRENCE[1]), { :style => "height:140px;width:120px",:multiple => true}%>
     </div>
     
      <div id="selector_monthly">
-      Sin implementar
+    
       <%= label_tag "Monthly" %>
       <%= select_tag "recurrence[monthly]", options_for_select(Event::MONTHLY_RECURRENCE,Event::MONTHLY_RECURRENCE[1]), {:include_blank => true, :multiple => true}%>
     </div>

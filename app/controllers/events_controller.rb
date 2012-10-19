@@ -162,16 +162,27 @@ class EventsController < ApplicationController
       #carefull with infinite rules!!! 
       final_day = start_day + 1.year if final_day > start_day + 1.year
       schedule = Schedule.new(start_day)
+      recurrence_value = 1
+      
        
       if(params[:recurrence][:every]==Event::RECURRENCE[0][1].to_s)
         recurrence_value = params[:recurrence][:daily].to_f
         schedule.add_recurrence_rule Rule.daily(recurrence_value)
+      
+        end
+      if(params[:recurrence][:every]==Event::RECURRENCE[1][1].to_s)
+        
+        recurrence_value = params[:recurrence][:weekly]
+         schedule.add_recurrence_rule eval("Rule.weekly(1).day(#{recurrence_value.join(',')})")
+        #schedule.add_recurrence_rule Rule.daily(recurrence_value)
       end
       
-      if(params[:recurrence][:every]==Event::RECURRENCE[0][2].to_s)
+       if(params[:recurrence][:every]==Event::RECURRENCE[2][1].to_s)
+        logger.fatal params[:recurrence][:every].to_s
+        recurrence_value = params[:recurrence][:monthly]
+        logger.fatal eval("Rule.monthly(1).day_of_month(#{recurrence_value.join(',')})").to_s
         
-        recurrence_value = params[:recurrence][:weekely]
-        logger.fatal recurrence_value
+         schedule.add_recurrence_rule eval("Rule.weekly(1).day_of_month(#{recurrence_value.join(',')})")
         #schedule.add_recurrence_rule Rule.daily(recurrence_value)
       end
       
@@ -196,9 +207,10 @@ class EventsController < ApplicationController
           
             i += 1
             break if t > final_day
+           
           end
           end
-          
+    
   
       
     end
