@@ -5,3 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+myfile = File.open("db/data/cities.txt")
+mylines=myfile.readlines
+
+mylines.each do |line|
+  code, name ,shortname= line.chomp.split("|")
+  City.create!(:name => name, :code => code, :shortname => shortname)
+  
+end

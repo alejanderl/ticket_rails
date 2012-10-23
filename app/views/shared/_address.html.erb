@@ -24,11 +24,12 @@ partial _address.erb.html
 
   <%= f.label :city %><br />
 
-  <%= f.text_field :city %>
+  <%#= f.text_field :city %>
   
 
 </p>
 
+ Find a City<%= f.autocomplete_field :city, autocomplete_city_name_address_path,:id_element => '#show_id_hidden' %>
  
 
 <p>

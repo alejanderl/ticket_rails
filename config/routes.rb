@@ -38,12 +38,15 @@ TikcetRails::Application.routes.draw do
     get :autocomplete_user_name, :on => :collection
   end
   
-   match 'events/:serie_id/show_serie' => 'events#show_serie', :as => :show_event_serie
-   match 'events/remove_serie/:serie_id' => 'events#remove_serie', :as => :remove_event_serie
-   match 'events/:id' => 'events#show', :as => :event_path
+  match 'events/:serie_id/show_serie' => 'events#show_serie', :as => :show_event_serie
+  match 'events/remove_serie/:serie_id' => 'events#remove_serie', :as => :remove_event_serie
+  match 'events/:id' => 'events#show', :as => :event_path
   
-  
-  
+   resources :address do
+     get :autocomplete_city_name, :on => :collection
+  end
+
+
 
   
 

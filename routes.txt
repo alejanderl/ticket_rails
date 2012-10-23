@@ -1,0 +1,87 @@
+                 events_board_show GET    /events_board/show(.:format)                            events_board#show
+                events_board_index GET    /events_board/index(.:format)                           events_board#index
+                             shows GET    /shows(.:format)                                        shows#index
+                                   POST   /shows(.:format)                                        shows#create
+                          new_show GET    /shows/new(.:format)                                    shows#new
+                         edit_show GET    /shows/:id/edit(.:format)                               shows#edit
+                              show GET    /shows/:id(.:format)                                    shows#show
+                                   PUT    /shows/:id(.:format)                                    shows#update
+                                   DELETE /shows/:id(.:format)                                    shows#destroy
+autocomplete_show_name_room_events GET    /rooms/:room_id/events/autocomplete_show_name(.:format) events#autocomplete_show_name
+            show_serie_room_events PUT    /rooms/:room_id/events/show_serie(.:format)             events#show_serie
+                       room_events GET    /rooms/:room_id/events(.:format)                        events#index
+                                   POST   /rooms/:room_id/events(.:format)                        events#create
+                    new_room_event GET    /rooms/:room_id/events/new(.:format)                    events#new
+                   edit_room_event GET    /rooms/:room_id/events/:id/edit(.:format)               events#edit
+                        room_event GET    /rooms/:room_id/events/:id(.:format)                    events#show
+                                   PUT    /rooms/:room_id/events/:id(.:format)                    events#update
+                                   DELETE /rooms/:room_id/events/:id(.:format)                    events#destroy
+                             rooms GET    /rooms(.:format)                                        rooms#index
+                                   POST   /rooms(.:format)                                        rooms#create
+                          new_room GET    /rooms/new(.:format)                                    rooms#new
+                         edit_room GET    /rooms/:id/edit(.:format)                               rooms#edit
+                              room GET    /rooms/:id(.:format)                                    rooms#show
+                                   PUT    /rooms/:id(.:format)                                    rooms#update
+                                   DELETE /rooms/:id(.:format)                                    rooms#destroy
+                            events GET    /events(.:format)                                       events#index
+                                   POST   /events(.:format)                                       events#create
+                         new_event GET    /events/new(.:format)                                   events#new
+                        edit_event GET    /events/:id/edit(.:format)                              events#edit
+                             event GET    /events/:id(.:format)                                   events#show
+                                   PUT    /events/:id(.:format)                                   events#update
+                                   DELETE /events/:id(.:format)                                   events#destroy
+                     theater_rooms GET    /theaters/:theater_id/rooms(.:format)                   rooms#index
+                                   POST   /theaters/:theater_id/rooms(.:format)                   rooms#create
+                  new_theater_room GET    /theaters/:theater_id/rooms/new(.:format)               rooms#new
+                 edit_theater_room GET    /theaters/:theater_id/rooms/:id/edit(.:format)          rooms#edit
+                      theater_room GET    /theaters/:theater_id/rooms/:id(.:format)               rooms#show
+                                   PUT    /theaters/:theater_id/rooms/:id(.:format)               rooms#update
+                                   DELETE /theaters/:theater_id/rooms/:id(.:format)               rooms#destroy
+                          theaters GET    /theaters(.:format)                                     theaters#index
+                                   POST   /theaters(.:format)                                     theaters#create
+                       new_theater GET    /theaters/new(.:format)                                 theaters#new
+                      edit_theater GET    /theaters/:id/edit(.:format)                            theaters#edit
+                           theater GET    /theaters/:id(.:format)                                 theaters#show
+                                   PUT    /theaters/:id(.:format)                                 theaters#update
+                                   DELETE /theaters/:id(.:format)                                 theaters#destroy
+                  new_user_session GET    /users/sign_in(.:format)                                devise/sessions#new
+                      user_session POST   /users/sign_in(.:format)                                devise/sessions#create
+              destroy_user_session GET    /users/sign_out(.:format)                               devise/sessions#destroy
+                     user_password POST   /users/password(.:format)                               devise/passwords#create
+                 new_user_password GET    /users/password/new(.:format)                           devise/passwords#new
+                edit_user_password GET    /users/password/edit(.:format)                          devise/passwords#edit
+                                   PUT    /users/password(.:format)                               devise/passwords#update
+          cancel_user_registration GET    /users/cancel(.:format)                                 devise/registrations#cancel
+                 user_registration POST   /users(.:format)                                        devise/registrations#create
+             new_user_registration GET    /users/sign_up(.:format)                                devise/registrations#new
+            edit_user_registration GET    /users/edit(.:format)                                   devise/registrations#edit
+                                   PUT    /users(.:format)                                        devise/registrations#update
+                                   DELETE /users(.:format)                                        devise/registrations#destroy
+                        selections GET    /selections(.:format)                                   selections#index
+                                   POST   /selections(.:format)                                   selections#create
+                     new_selection GET    /selections/new(.:format)                               selections#new
+                    edit_selection GET    /selections/:id/edit(.:format)                          selections#edit
+                         selection GET    /selections/:id(.:format)                               selections#show
+                                   PUT    /selections/:id(.:format)                               selections#update
+                                   DELETE /selections/:id(.:format)                               selections#destroy
+                      ticket_index GET    /ticket/index(.:format)                                 ticket#index
+      autocomplete_user_name_films GET    /films/autocomplete_user_name(.:format)                 films#autocomplete_user_name
+                             films GET    /films(.:format)                                        films#index
+                                   POST   /films(.:format)                                        films#create
+                          new_film GET    /films/new(.:format)                                    films#new
+                         edit_film GET    /films/:id/edit(.:format)                               films#edit
+                              film GET    /films/:id(.:format)                                    films#show
+                                   PUT    /films/:id(.:format)                                    films#update
+                                   DELETE /films/:id(.:format)                                    films#destroy
+                  show_event_serie        /events/:serie_id/show_serie(.:format)                  events#show_serie
+                remove_event_serie        /events/remove_serie/:serie_id(.:format)                events#remove_serie
+                        event_path        /events/:id(.:format)                                   events#show
+    autocomplete_city_name_address GET    /address/autocomplete_city_name(.:format)               address#autocomplete_city_name
+                           address GET    /address(.:format)                                      address#index
+                                   POST   /address(.:format)                                      address#create
+                        new_addres GET    /address/new(.:format)                                  address#new
+                       edit_addres GET    /address/:id/edit(.:format)                             address#edit
+                            addres GET    /address/:id(.:format)                                  address#show
+                                   PUT    /address/:id(.:format)                                  address#update
+                                   DELETE /address/:id(.:format)                                  address#destroy
+                      events_board        /                                                       events_board#index

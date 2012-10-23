@@ -1,6 +1,9 @@
 class TheatersController < ApplicationController
   # GET /theaters
   # GET /theaters.json
+  
+
+  
   def index
     @theaters = Theater.all
 
