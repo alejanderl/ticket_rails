@@ -2,7 +2,15 @@ class ShowsController < ApplicationController
   # GET /shows
   # GET /shows.json
   def index
-    @shows = Show.all
+    @shows = Show.includes.all
+    @the_list = theme_variables(@shows)
+    
+    render "shared/_list_of_items"
+  end
+  #GET city/name
+  def by_city
+    @shows = Show.by_city(params[:city])
+    logger.fatal @shows.inspect.to_s
     @the_list = theme_variables(@shows)
     render "shared/_list_of_items"
   end

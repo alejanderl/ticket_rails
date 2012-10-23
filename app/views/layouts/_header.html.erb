@@ -13,6 +13,14 @@
           </ul>
           
         </div>
+             <div id="top_menu">
+          <ul>
+            <li><%=  "Select your city" %></li>
+            <li><%= link_to "Madrid",show_by_city_path("Madrid") %></li>
+            <li><%= link_to "Barcelona",show_by_city_path("Barcelona") %></li>            
+          </ul>
+          
+        </div>
         <%= render "shared/sign_in" %>
       </div>
     </div>

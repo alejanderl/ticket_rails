@@ -4,4 +4,19 @@ class Show < ActiveRecord::Base
   has_many :events
   belongs_to :image
   accepts_nested_attributes_for :image
+  
+
+
+ def self.all_nested   
+   includes(:events => [{:room =>[{ :theater =>:address }] }])
+ end
+ 
+  def self.by_city(city)
+   includes(:events => [{:room =>[{ :theater =>:address }] }]).where("addresses.city = ? AND events.date >= ?",city,Time.now)
+  end
+
+  #shows = Show.includes(:events => [{:room =>[{ :theater =>:address }] }]).where("addresses.city = 'Barcelona'")Madrid
+
+  
+
 end
