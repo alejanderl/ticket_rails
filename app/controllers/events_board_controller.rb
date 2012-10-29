@@ -1,4 +1,5 @@
 class EventsBoardController < ApplicationController
+  skip_authorize_resource
   def show
   end
 

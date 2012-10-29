@@ -1,6 +1,7 @@
 class ShowsController < ApplicationController
   # GET /shows
   # GET /shows.json
+  load_and_authorize_resource
   def index
     @shows = Show.includes.all
     @the_list = theme_variables(@shows)

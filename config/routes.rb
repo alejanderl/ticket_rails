@@ -11,7 +11,7 @@ TikcetRails::Application.routes.draw do
   
   
 
-  resources :shows
+  resources :shows	
   match 'cities/:city' => 'shows#by_city', :as => :show_by_city
 
   resources :rooms do

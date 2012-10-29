@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121022142913) do
+ActiveRecord::Schema.define(:version => 20121026132406) do
 
   create_table "addresses", :force => true do |t|
     t.string   "line1"
@@ -25,6 +25,17 @@ ActiveRecord::Schema.define(:version => 20121022142913) do
     t.integer  "addressable_id"
     t.string   "addressable_type"
   end
+
+  create_table "administrators", :force => true do |t|
+    t.string   "name"
+    t.integer  "resource_id"
+    t.string   "resource_type"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "administrators", ["name", "resource_type", "resource_id"], :name => "index_administrators_on_name_and_resource_type_and_resource_id"
+  add_index "administrators", ["name"], :name => "index_administrators_on_name"
 
   create_table "cinemas", :force => true do |t|
     t.string   "name"
@@ -81,6 +92,28 @@ ActiveRecord::Schema.define(:version => 20121022142913) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "managers", :force => true do |t|
+    t.string   "name"
+    t.integer  "resource_id"
+    t.string   "resource_type"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "managers", ["name", "resource_type", "resource_id"], :name => "index_managers_on_name_and_resource_type_and_resource_id"
+  add_index "managers", ["name"], :name => "index_managers_on_name"
+
+  create_table "registereds", :force => true do |t|
+    t.string   "name"
+    t.integer  "resource_id"
+    t.string   "resource_type"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "registereds", ["name", "resource_type", "resource_id"], :name => "index_registereds_on_name_and_resource_type_and_resource_id"
+  add_index "registereds", ["name"], :name => "index_registereds_on_name"
+
   create_table "rooms", :force => true do |t|
     t.string   "name"
     t.text     "description"
@@ -130,5 +163,26 @@ ActiveRecord::Schema.define(:version => 20121022142913) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "users_administrators", :id => false, :force => true do |t|
+    t.integer "user_id"
+    t.integer "administrator_id"
+  end
+
+  add_index "users_administrators", ["user_id", "administrator_id"], :name => "index_users_administrators_on_user_id_and_administrator_id"
+
+  create_table "users_managers", :id => false, :force => true do |t|
+    t.integer "user_id"
+    t.integer "manager_id"
+  end
+
+  add_index "users_managers", ["user_id", "manager_id"], :name => "index_users_managers_on_user_id_and_manager_id"
+
+  create_table "users_registereds", :id => false, :force => true do |t|
+    t.integer "user_id"
+    t.integer "registered_id"
+  end
+
+  add_index "users_registereds", ["user_id", "registered_id"], :name => "index_users_registereds_on_user_id_and_registered_id"
 
 end

@@ -22,7 +22,7 @@ end
 
 gem 'jquery-rails'
 gem 'rails-asset-jqueryui'
-
+gem "rolify"
 gem 'carrierwave'
 gem 'rmagick'
 gem 'devise'

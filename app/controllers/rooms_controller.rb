@@ -1,6 +1,7 @@
 class RoomsController < ApplicationController
   # GET /rooms
   # GET /rooms.json
+  load_and_authorize_resource
   before_filter :load_theater
   def index
     @rooms = @theater.rooms.all

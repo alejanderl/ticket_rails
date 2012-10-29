@@ -5,10 +5,11 @@ class EventsController < ApplicationController
   before_filter :load_room
   before_filter :get_show_id  , :only => [:create, :update]
   after_filter :recurrences_save, :only => [:create, :update]
-  
+  after_filter :session_trace
 
   autocomplete :show, :name, :full => true
-  
+    load_and_authorize_resource
+
   def remove_serie
    #@event  = Event.where(:serie_id => params[:serie_id]).first
     Event.destroy_all("serie_id = #{params[:serie_id]}")
@@ -217,6 +218,11 @@ class EventsController < ApplicationController
     
   end
   
+  def session_trace
+    
+    logger.fatal session.to_s
+    
+  end
 
   
 end

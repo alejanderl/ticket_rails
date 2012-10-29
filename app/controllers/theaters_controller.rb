@@ -2,7 +2,7 @@ class TheatersController < ApplicationController
   # GET /theaters
   # GET /theaters.json
   
-
+  load_and_authorize_resource
   
   def index
     @theaters = Theater.all
