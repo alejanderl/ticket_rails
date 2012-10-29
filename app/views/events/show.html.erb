@@ -34,7 +34,7 @@
   <%= @event.exception %>
 </p>
 fsdgdfg
-<%= if user.can?  :update,@event  %>
+<% if user.can?  :update,@event  %>
   <%= link_to 'Edit', edit_room_event_path(@room,@event) %> |
 <% end %>
 <%= link_to 'Back', @room %>
