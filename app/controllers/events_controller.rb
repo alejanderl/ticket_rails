@@ -8,7 +8,8 @@ class EventsController < ApplicationController
   after_filter :session_trace
 
   autocomplete :show, :name, :full => true
-    load_and_authorize_resource
+    
+    load_and_authorize_resource :only => [:new, :update, :create, :destroy]
 
   def remove_serie
    #@event  = Event.where(:serie_id => params[:serie_id]).first

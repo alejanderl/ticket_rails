@@ -12,6 +12,10 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
   before_create :setup_default_role_for_new_users
+  has_one :address , :as => :addressable ,:dependent => :destroy
+  belongs_to :image, :dependent => :destroy
+  accepts_nested_attributes_for :address
+  accepts_nested_attributes_for :image
   
   def setup_default_role_for_new_users
     if !self.has_any_role?

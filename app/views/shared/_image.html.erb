@@ -1,8 +1,26 @@
-<p>
 
+
+  
+  
+  <% if f.object.file.present? %>
+
+<div id="image" style="<%=  "display:none;" if !f.object.file.present? %>" >
+  
+ 
+  <%= image_tag f.object.file_url(:nano_thumb_50) if f.object.file? %>  
+  
+  </div>
+  
+ 
+  <%= link_to "Delete image" , "#" ,:class => "delete-image" %>
+   <% end %>
+   
+  <div id="fields-image" style="<%= "display:none;"  if f.object.file.present? %>">
+  <p>
   <%= f.label :name, 'Name' %><br />
 
   <%= f.text_field :name %>
+  
 
 </p>
 
@@ -17,7 +35,9 @@
 
 </p>
 
- 
+</div>
+
+
 
 <p>
 
