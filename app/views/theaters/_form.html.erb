@@ -23,10 +23,7 @@
       <%= render :partial => 'shared/image', :locals => {:f => images } %>
     <% end %>
   <%= f.fields_for :address do |address| %>
-  
- 
     <%= render :partial => 'shared/address', :locals => {:f => address }%>
-
   <% end %>
   <div class="actions">
     <%= f.submit %>

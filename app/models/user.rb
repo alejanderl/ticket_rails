@@ -9,13 +9,23 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :image_attributes, :address_attributes
   # attr_accessible :title, :body
   before_create :setup_default_role_for_new_users
   has_one :address , :as => :addressable ,:dependent => :destroy
   belongs_to :image, :dependent => :destroy
   accepts_nested_attributes_for :address
   accepts_nested_attributes_for :image
+  
+  before_create :check_address
+  
+  
+  default_scope  :include => [:image, :address]
+  
+  
+  def check_address
+    self.build_address unless self.address 
+  end
   
   def setup_default_role_for_new_users
     if !self.has_any_role?

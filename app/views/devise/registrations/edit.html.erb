@@ -14,6 +14,14 @@
 
   <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
   <%= f.password_field :current_password %></div>
+   
+  <%= f.fields_for :image do |images| %>
+  
+    <%= render :partial => 'shared/image', :locals => {:f => images } %>
+  <% end %>
+  <%= f.fields_for :address do |address| %>
+    <%= render :partial => 'shared/address', :locals => {:f => address }%>
+  <% end %>
 
   <div><%= f.submit "Update" %></div>
 <% end %>
